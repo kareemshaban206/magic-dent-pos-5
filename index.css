@@ -1,0 +1,375 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@500;600;700;800;900&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-bg: 15 23 42;
+  --color-primary: 56 189 248;
+  --color-secondary: 34 197 94;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'IBM Plex Sans Arabic', 'Cairo', system-ui, -apple-system, sans-serif;
+  background-color: rgb(var(--color-bg));
+  background-image:
+    radial-gradient(1200px 620px at 100% -5%, rgba(56, 189, 248, 0.12), transparent 62%),
+    radial-gradient(900px 520px at 0% 105%, rgba(34, 197, 94, 0.09), transparent 60%);
+  background-attachment: fixed;
+  color: #e2e8f0;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overscroll-behavior: none;
+}
+
+h1,
+h2,
+h3,
+.font-display {
+  font-family: 'Cairo', 'IBM Plex Sans Arabic', system-ui, sans-serif;
+}
+
+button {
+  font-family: inherit;
+}
+
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
+/* thin, dark scrollbars */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #334155 transparent;
+}
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #334155;
+  border-radius: 999px;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background-color: #475569;
+}
+
+@keyframes mdFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes mdPop {
+  0% {
+    transform: scale(0.94);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.01);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes mdSheet {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes mdRing {
+  0% {
+    box-shadow: 0 0 0 0 rgba(56, 189, 248, 0.55);
+  }
+  100% {
+    box-shadow: 0 0 0 14px rgba(56, 189, 248, 0);
+  }
+}
+
+@keyframes mdGlow {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.anim-fade-up {
+  animation: mdFadeUp 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.anim-pop {
+  animation: mdPop 0.32s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.anim-sheet {
+  animation: mdSheet 0.3s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.anim-ring {
+  animation: mdRing 0.55s ease-out;
+}
+.anim-glow {
+  animation: mdGlow 4s ease-in-out infinite;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ============================================================================
+   Light theme — applied by toggling the `light` class on <html>.
+   The UI is authored with a dark slate palette, so light mode remaps those
+   exact utility tokens to a high-contrast paper palette. Dark mode is
+   completely untouched (no rule below applies without html.light).
+   ========================================================================== */
+
+html.light {
+  --color-bg: 241 245 249;
+}
+
+html.light body {
+  background-color: #eef2f7;
+  background-image:
+    radial-gradient(1200px 620px at 100% -5%, rgba(56, 189, 248, 0.18), transparent 62%),
+    radial-gradient(900px 520px at 0% 105%, rgba(34, 197, 94, 0.14), transparent 60%);
+  color: #0f172a;
+}
+
+html.light * {
+  scrollbar-color: #cbd5e1 transparent;
+}
+html.light *::-webkit-scrollbar-thumb {
+  background-color: #cbd5e1;
+}
+html.light *::-webkit-scrollbar-thumb:hover {
+  background-color: #94a3b8;
+}
+
+/* ---- surfaces ---- */
+html.light [class~="bg-[#0f172a]"],
+html.light [class~="bg-[#0f172a]/95"],
+html.light [class~="bg-[#0f172a]/85"] {
+  background-color: #f1f5f9;
+}
+
+html.light [class~="bg-[#1e293b]"],
+html.light [class~="bg-[#131c2e]"],
+html.light [class~="bg-[#131c2e]/95"],
+html.light [class~="bg-[#101a2c]"],
+html.light [class~="bg-slate-800/40"],
+html.light [class~="bg-slate-800/50"],
+html.light [class~="bg-slate-800/60"],
+html.light [class~="bg-slate-800/70"],
+html.light [class~="bg-slate-800/80"] {
+  background-color: #ffffff;
+}
+
+html.light [class~="bg-slate-900/40"],
+html.light [class~="bg-slate-900/50"],
+html.light [class~="bg-slate-900/60"],
+html.light [class~="bg-slate-900/70"],
+html.light [class~="bg-slate-900/80"] {
+  background-color: #f8fafc;
+}
+
+html.light [class~="bg-slate-800"],
+html.light [class~="bg-slate-700"],
+html.light [class~="bg-slate-700/60"],
+html.light [class~="bg-slate-700/70"] {
+  background-color: #e8eef5;
+}
+
+html.light [class~="bg-slate-600"] {
+  background-color: #94a3b8;
+}
+
+/* ---- borders ---- */
+html.light [class~="border-slate-800"],
+html.light [class~="border-slate-800/70"],
+html.light [class~="border-slate-800/80"],
+html.light [class~="border-slate-700"],
+html.light [class~="border-slate-700/60"],
+html.light [class~="border-slate-700/70"],
+html.light [class~="border-slate-700/80"],
+html.light [class~="border-slate-600"],
+html.light [class~="border-slate-600/80"] {
+  border-color: #dbe3ec;
+}
+html.light [class~="border-[#0f172a]"] {
+  border-color: #ffffff;
+}
+
+/* ---- text ---- */
+html.light [class~="text-slate-50"],
+html.light [class~="text-slate-100"],
+html.light [class~="text-slate-200"] {
+  color: #0f172a;
+}
+html.light [class~="text-slate-300"] {
+  color: #334155;
+}
+html.light [class~="text-slate-400"] {
+  color: #475569;
+}
+html.light [class~="text-slate-600"] {
+  color: #94a3b8;
+}
+
+/* ---- accents tuned for a light background ---- */
+html.light [class~="text-sky-400"] {
+  color: #0284c7;
+}
+html.light [class~="text-sky-300"] {
+  color: #0369a1;
+}
+html.light [class~="text-emerald-400"] {
+  color: #059669;
+}
+html.light [class~="text-emerald-300"] {
+  color: #047857;
+}
+html.light [class~="text-amber-400"],
+html.light [class~="text-amber-300"] {
+  color: #b45309;
+}
+html.light [class~="text-rose-400"],
+html.light [class~="text-rose-300"] {
+  color: #be123c;
+}
+
+/* ---- hover feedback ---- */
+html.light [class~="hover:bg-slate-800"]:hover,
+html.light [class~="hover:bg-slate-700/60"]:hover,
+html.light [class~="hover:bg-slate-700"]:hover {
+  background-color: #eef2f7;
+}
+html.light [class~="hover:bg-slate-600"]:hover {
+  background-color: #cbd5e1;
+}
+html.light [class~="hover:text-white"]:hover,
+html.light [class~="hover:text-slate-100"]:hover {
+  color: #0f172a;
+}
+html.light [class~="hover:border-slate-600"]:hover {
+  border-color: #94a3b8;
+}
+html.light [class~="placeholder:text-slate-500"]::placeholder {
+  color: #94a3b8;
+}
+
+/* ---- overlays & elevation ---- */
+html.light [class~="bg-[#080e1a]/90"],
+html.light [class~="bg-[#050a14]/80"] {
+  background-color: rgba(15, 23, 42, 0.42);
+}
+html.light [class~="shadow-[0_30px_80px_-20px_rgba(2,8,23,0.9)]"] {
+  box-shadow: 0 30px 80px -28px rgba(15, 23, 42, 0.35);
+}
+
+/* ---- extra accents used by the cashier grid, profit table and hub ---- */
+html.light [class~="text-violet-300"],
+html.light [class~="text-violet-400"] {
+  color: #6d28d9;
+}
+html.light [class~="bg-violet-500/10"],
+html.light [class~="bg-violet-500/15"],
+html.light [class~="bg-violet-500/20"] {
+  background-color: rgba(139, 92, 246, 0.12);
+}
+html.light [class~="border-violet-500/30"] {
+  border-color: rgba(139, 92, 246, 0.35);
+}
+html.light [class~="text-amber-200"],
+html.light [class~="text-amber-100"] {
+  color: #92400e;
+}
+html.light [class~="text-rose-200"],
+html.light [class~="text-rose-100"] {
+  color: #b91c1c;
+}
+html.light [class~="text-emerald-200"],
+html.light [class~="text-emerald-100"] {
+  color: #065f46;
+}
+html.light [class~="text-sky-200"],
+html.light [class~="text-sky-100"] {
+  color: #075985;
+}
+html.light [class~="text-slate-500"] {
+  color: #64748b;
+}
+html.light [class~="text-slate-600"] {
+  color: #94a3b8;
+}
+
+/* product cards use a dark gradient in dark mode — paper in light mode */
+html.light [class~="from-slate-800/80"] {
+  --tw-gradient-from: #ffffff;
+  --tw-gradient-to: rgb(255 255 255 / 0);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+html.light [class~="to-slate-900/90"] {
+  --tw-gradient-to: #f1f5f9;
+}
+html.light [class~="bg-slate-900/60"] {
+  background-color: #f8fafc;
+}
+html.light [class~="bg-slate-950/70"],
+html.light [class~="bg-slate-950/85"] {
+  background-color: rgba(15, 23, 42, 0.72);
+}
+
+@keyframes mdShake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-6px);
+  }
+  40% {
+    transform: translateX(6px);
+  }
+  60% {
+    transform: translateX(-4px);
+  }
+  80% {
+    transform: translateX(4px);
+  }
+}
+
+.anim-shake {
+  animation: mdShake 0.4s ease-in-out both;
+}
